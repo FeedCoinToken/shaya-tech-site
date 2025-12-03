@@ -1,205 +1,895 @@
-Shaya Ahmadi, [12/2/2025 9:29 PM]
+Shaya Ahmadi, [12/4/2025 4:32 AM]
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shaya Tech — Crypto & Digital Consulting</title>
 
     <style>
-        body {
+        :root {
+            --bg: #050711;
+            --bg-alt: #060818;
+            --accent: #53d7ff;
+            --accent-soft: rgba(83, 215, 255, 0.15);
+            --text-main: #f5f5f7;
+            --text-muted: #a2a5b9;
+            --card-bg: #0c0f23;
+            --border-subtle: #1c2037;
+            --danger: #ff4f6a;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: "Segoe UI", sans-serif;
-            background: #0a0a0f;
-            color: white;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+            background: radial-gradient(circle at top, #151a3a 0, #050711 45%, #020308 100%);
+            color: var(--text-main);
             overflow-x: hidden;
         }
 
-        /* Hero Section */
-        .hero {
+        /* ---------- NAVBAR ---------- */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100vh;
-            background: linear-gradient(120deg, #0a0a0f, #111122, #0a0a0f);
+            z-index: 50;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 7, 17, 0.9),
+                rgba(5, 7, 17, 0.6),
+                transparent
+            );
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 20px;
+            justify-content: space-between;
         }
 
-        .hero h1 {
-            font-size: 55px;
-            font-weight: 800;
-            color: #58d7ff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .hero h3 {
-            font-size: 22px;
-            margin-top: 10px;
-            max-width: 700px;
-            color: #dddddd;
-        }
-
-        .btn {
-            margin-top: 30px;
-            padding: 14px 35px;
-            background: #58d7ff;
-            color: #000;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #8be9ff;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 10%;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 40px;
-            color: #58d7ff;
-            margin-bottom: 15px;
-        }
-
-        section p {
-            font-size: 20px;
-            max-width: 900px;
-            margin: auto;
-            color: #cccccc;
-            line-height: 1.8;
-        }
-
-        .features {
-            margin-top: 50px;
+        .logo {
             display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .logo-mark {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 210deg,
+                #53d7ff,
+                #5b8bff,
+                #ff4f9a,
+                #53d7ff
+            );
+            display: flex;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
+            box-shadow: 0 0 18px rgba(83, 215, 255, 0.55);
+            font-size: 15px;
         }
 
-        .card {
-            background: #12121a;
-            padding: 25px;
-            width: 280px;
-            border-radius: 12px;
-            border: 1px solid #222;
-            transition: 0.3s;
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
         }
 
-        .card:hover {
-            border: 1px solid #58d7ff;
-            transform: translateY(-6px);
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
         }
 
-        .card h3 {
-            color: #58d7ff;
-            font-size: 22px;
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent), var(--danger));
+            transition: width 0.22s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent), #5b8bff);
+            color: #020308;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            box-shadow: 0 0 22px rgba(83, 215, 255, 0.65);
+        }
+
+        /* ---------- LAYOUT ---------- */
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 16px 80px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .tagline {
+            font-size: 13px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 56px);
+
+Shaya Ahmadi, [12/4/2025 4:32 AM]
+line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 30px;
             margin-bottom: 10px;
         }
 
-        /* Contact Box */
-        .contact-box {
-            margin-top: 30px;
-            padding: 20px;
-            background: #12121a;
-            border: 1px solid #333;
-            border-radius: 10px;
+        p.lead {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 620px;
+        }
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+            gap: 36px;
+            align-items: center;
+        }
+
+        .hero-left {
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(10, 17, 40, 0.85);
+            border: 1px solid rgba(83, 215, 255, 0.3);
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+
+        .hero-badge span.icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(83, 215, 255, 0.1);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .btn-primary {
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(90deg, var(--accent), #5b8bff);
+            color: #020308;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            box-shadow: 0 0 24px rgba(83, 215, 255, 0.7);
+        }
+
+        .btn-ghost {
+            padding: 12px 22px;
+            border-radius: 999px;
+            border: 1px solid rgba(143, 148, 188, 0.8);
+            cursor: pointer;
+            background: transparent;
+            color: var(--text-main);
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .hero-footnote {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-card {
+            position: relative;
+            border-radius: 22px;
+            padding: 24px 22px;
+            background: radial-gradient(circle at top left, #293366 0, #090b18 45%);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 26px 60px rgba(0, 0, 0, 0.65);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .metric {
+            border-radius: 14px;
+            background: rgba(6, 9, 24, 0.75);
+            padding: 12px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .metric-pill {
+            font-size: 11px;
+            margin-top: 6px;
             display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(83, 215, 255, 0.1);
+            color: var(--accent);
         }
 
-        .contact-box p {
-            margin: 5px 0;
-            font-size: 20px;
-            color: #eeeeee;
+        .hero-orb {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(83, 215, 255, 0.3) 0, transparent 60%);
+            right: -70px;
+            top: -50px;
+            filter: blur(1px);
+            opacity: 0.8;
         }
 
-        /* Footer */
+        /* ---------- SECTIONS ---------- */
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 40px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+
+Shaya Ahmadi, [12/4/2025 4:32 AM]
+font-size: 15px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 22px 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, var(--accent-soft), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.25s ease-out;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(83, 215, 255, 0.08);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ---------- PROCESS ---------- */
+
+        .process {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .step {
+            background: rgba(7, 9, 24, 0.9);
+            border-radius: 16px;
+            padding: 18px 16px;
+            border: 1px dashed rgba(142, 146, 190, 0.7);
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), #5b8bff);
+            color: #020308;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .step-title {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .step-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ---------- TESTIMONIALS ---------- */
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: 1.4fr 2fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .quote {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        .quote-mark {
+            font-size: 40px;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .quote-meta {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .quote-meta span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .t-card {
+            background: rgba(8, 11, 26, 0.95);
+            border-radius: 16px;
+            padding: 16px 14px;
+            border: 1px solid var(--border-subtle);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .t-label {
+            font-size: 12px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        /* ---------- CONTACT ---------- */
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 1.2fr;
+            gap: 26px;
+            align-items: center;
+        }
+
+        .contact-highlights {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+
+Shaya Ahmadi, [12/4/2025 4:32 AM]
+gap: 8px;
+            margin-top: 14px;
+        }
+
+        .pill {
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(146, 151, 200, 0.7);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .contact-box {
+            background: rgba(5, 8, 22, 0.95);
+            border-radius: 18px;
+            padding: 20px 18px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .contact-row {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .contact-value {
+            margin-top: 2px;
+        }
+
+        .contact-note {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
-            background: #050508;
-            color: #777;
-            margin-top: 60px;
+            padding: 26px 12px 18px;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            margin-top: 40px;
         }
 
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 880px) {
+            .nav-inner {
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                padding-top: 96px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
-
-<!-- HERO -->
-<div class="hero">
-    <h1>SHAYA TECH</h1>
-    <h3>Advanced Crypto Strategies • Technical Consulting • Digital Innovation</h3>
-    <a href="#contact" class="btn">Contact Us</a>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-    <h2>About Us</h2>
-    <p>
-        Shaya Tech is a cutting-edge digital consulting agency specializing in blockchain, crypto markets, 
-        technical analysis, digital transformation, and advanced fintech solutions.
-        <br><br>
-        With a strategic and data-driven approach, we help individuals and businesses navigate the world of 
-        decentralized technologies, optimize digital performance, and build sustainable growth in the fast-moving
-        digital economy.
-    </p>
-</section>
-
-<!-- GOALS -->
-<section id="goals">
-    <h2>Our Mission & Goals</h2>
-    <p>
-        Our mission is to empower clients through modern technology, smart decision-making, and high-level digital insights.
-
-Shaya Ahmadi, [12/2/2025 9:29 PM]
-We combine professional analysis with practical execution to deliver unmatched value.
-    </p>
-
-    <div class="features">
-        <div class="card">
-            <h3>Crypto Insights</h3>
-            <p>Advanced technical analysis, market forecasting, and strategic trading guidance.</p>
+    <!-- NAVBAR -->
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="logo">
+                <div class="logo-mark">S</div>
+                <span>Shaya Tech</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="nav-cta">Book a Call</a>
         </div>
+    </header>
 
-        <div class="card">
-            <h3>Digital Consulting</h3>
-            <p>Transforming businesses through modern tools, automation, and innovation.</p>
-        </div>
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="icon">⚡</span>
+                    <span>Crypto • Technical • Digital Strategy</span>
+                </div>
 
-        <div class="card">
-            <h3>Web Solutions</h3>
-            <p>Custom digital strategies, branding, and online presence optimization.</p>
-        </div>
-    </div>
-</section>
+                <p class="tagline">NEXT-GEN DIGITAL CONSULTING</p>
+                <h1>Strategic Crypto & Digital Solutions for Serious Builders.</h1>
+                <p class="lead">
+                    Shaya Tech partners with traders, investors, and digital brands
+                    who want more than hype. We deliver deep technical analysis,
+                    crypto strategy, and high-impact digital transformation.
+                </p>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>We're here to support your digital journey. Reach out for consultations, collaborations, and professional guidance.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Request a Consultation</a>
+                    <a href="portfolio.html" class="btn-ghost">View Portfolio</a>
+                </div>
 
-    <div class="contact-box">
-        <p><strong>Phone:</strong> 3515581732</p>
-        <p><strong>Email:</strong> info@shaya-tech.com</p>
-    </div>
-</section>
+                <div class="hero-footnote">
+                    High-signal market insights • Smart risk management •
+                    Real execution — not theory.
+                </div>
+            </div>
 
-<footer>
-    © 2025 Shaya Tech — Professional Crypto & Digital Consulting.
-</footer>
+            <div class="hero-right">
+                <div class="hero-card">
+                    <div class="hero-grid">
+                        <div class="metric">
+                            <div class="metric-label">Market Strategies Deployed</div>
+                            <div class="metric-value">+120</div>
+                            <div class="metric-pill">Crypto & DeFi optimization</div>
+                        </div>
+                        <div class="metric">
 
+Shaya Ahmadi, [12/4/2025 4:32 AM]
+<div class="metric-label">Digital Growth</div>
+                            <div class="metric-value">3–7×</div>
+                            <div class="metric-pill">Average client improvement</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Technical Focus</div>
+                            <div class="metric-value">Crypto · Web · Data</div>
+                            <div class="metric-pill">From strategy to deployment</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Engagement Style</div>
+                            <div class="metric-value">One-to-One</div>
+                            <div class="metric-pill">Tailored to your goals</div>
+                        </div>
+                    </div>
+                    <div class="hero-orb"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="section-header">
+                <p class="tagline">SERVICES</p>
+                <h2>What Shaya Tech Delivers</h2>
+                <p>
+                    From advanced crypto strategies to full digital overhaul, we help you
+                    see the market and your business with absolute clarity — then act
+                    with precision.
+                </p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">Crypto Technical Consulting</div>
+                    <div class="card-text">
+                        Deep technical analysis for crypto markets, key levels, market
+                        structure and scenario planning. Structured strategies instead of
+                        emotional entries and exits.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <div class="card-title">Risk & Portfolio Structure</div>
+                    <div class="card-text">
+                        Designing risk-controlled setups, portfolio allocation models
+                        and rules that match your profile — from active traders
+                        to long-term holders.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">Digital Presence & Web</div>
+                    <div class="card-text">
+                        Clean, high-trust digital presence: landing pages, funnels, and
+                        content structure built to convert visitors into serious clients
+                        and long-term community.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-title">Automation & Tools</div>
+                    <div class="card-text">
+                        From dashboards to workflow automation, we help you track what
+                        matters, remove friction, and make decisions powered by data
+                        instead of noise.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY US -->
+        <section id="why">
+            <div class="section-header">
+                <p class="tagline">WHY SHAYA TECH</p>
+                <h2>Signal Over Noise.</h2>
+                <p>
+                    The digital space is full of noise, shortcuts and empty promises.
+                    Shaya Tech was built to be the opposite: focused, analytical and
+                    execution-driven.
+                </p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+
+Shaya Ahmadi, [12/4/2025 4:32 AM]
+<div class="card-title">Clarity in Complexity</div>
+                    <div class="card-text">
+                        Translating complex technical structures, macro context and on-chain
+                        data into clear action steps you can follow with confidence.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <div class="card-title">Partner, Not Just Provider</div>
+                    <div class="card-text">
+                        We work alongside you — refining your framework, stress-testing
+                        ideas and aligning strategy with what actually fits you.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">Performance Mindset</div>
+                    <div class="card-text">
+                        Every recommendation is tied to measurable outcomes: capital
+                        protection, controlled growth and sustainable digital brand value.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process">
+            <div class="section-header">
+                <p class="tagline">PROCESS</p>
+                <h2>How Collaboration Works</h2>
+                <p>
+                    Structured, transparent and focused on building an edge — not just
+                    giving you another PDF full of theory.
+                </p>
+            </div>
+
+            <div class="process">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Discovery Call</div>
+                    <div class="step-text">
+                        We discuss your objectives, capital size, time horizon and current
+                        digital presence. You get an honest view of what’s realistic.
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Audit & Mapping</div>
+                    <div class="step-text">
+                        Review of your current strategy, behaviour patterns and systems.
+                        We identify blind spots and hidden risk.
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Strategy Build</div>
+                    <div class="step-text">
+                        Clear frameworks for market entries, exits, portfolio allocation,
+                        and digital positioning — written in simple language.
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Ongoing Refinement</div>
+                    <div class="step-text">
+                        Regular check-ins to adjust strategy as markets and your goals
+                        evolve. No “set and forget” — real partnership.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials">
+            <div class="testimonials">
+                <div>
+                    <span class="quote-mark">“</span>
+                    <p class="quote">
+                        Working with Shaya Tech feels like switching from random trades
+                        to an actual playbook. The biggest difference is calm — clarity
+                        on what to do and when to do it.
+                    </p>
+                    <div class="quote-meta">
+                        Professional Client
+                        <span>Crypto & Digital Strategy</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-cards">
+
+Shaya Ahmadi, [12/4/2025 4:32 AM]
+<div class="t-card">
+                        <div class="t-label">High Conviction</div>
+                        Clear scenarios, predefined invalidation levels and risk per
+                        trade. No more chasing every candle or headline.
+                    </div>
+                    <div class="t-card">
+                        <div class="t-label">Structured Decisions</div>
+                        Every move is tied to a plan, not mood. Playbook-driven entries,
+                        scaling, and exits.
+                    </div>
+                    <div class="t-card">
+                        <div class="t-label">Digital Authority</div>
+                        Strong online presence that actually reflects the quality of
+                        your work, not just another generic profile.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="section-header">
+                <p class="tagline">CONTACT</p>
+                <h2>Ready to Upgrade Your Edge?</h2>
+                <p>
+                    If you’re serious about elevating your crypto, trading or digital
+                    presence, let’s talk. No spam, no pressure — just a direct,
+                    professional conversation.
+                </p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div>
+                    <p class="contact-highlights">
+                        Shaya Tech works best with people who think long-term:
+                        traders who want structure, investors who want risk
+                        discipline, and digital brands that want positioning
+                        beyond clichés.
+                    </p>
+                    <div class="pill-row">
+                        <div class="pill">Crypto & Market Structure</div>
+                        <div class="pill">Digital Strategy</div>
+                        <div class="pill">One-to-One Consulting</div>
+                        <div class="pill">Execution-Focused</div>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-row">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+39 351 558 1732</div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">info@shaya-tech.com</div>
+                    </div>
+                    <div class="contact-row">
+                        <div class="contact-label">Location</div>
+                        <div class="contact-value">
+                            Remote • Working with clients across Europe & beyond
+                        </div>
+                    </div>
+                    <div class="contact-note">
+                        Send a short message with a brief description of your
+                        situation and goals. You’ll receive a direct reply with
+                        next steps for collaboration.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> Shaya Tech — Crypto & Digital Consulting.
+            All rights reserved.
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
