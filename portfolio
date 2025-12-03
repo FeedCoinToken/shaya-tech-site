@@ -1,0 +1,388 @@
+Shaya Ahmadi, [12/4/2025 4:36 AM]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Shaya Tech</title>
+
+    <style>
+        :root {
+            --bg: #050711;
+            --accent: #53d7ff;
+            --accent-soft: rgba(83, 215, 255, 0.15);
+            --text-main: #f5f5f7;
+            --text-muted: #a2a5b9;
+            --card-bg: #0c0f23;
+            --border-subtle: #1c2037;
+            --danger: #ff4f6a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+            background: radial-gradient(circle at top, #151a3a 0, #050711 45%, #020308 100%);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 7, 17, 0.9),
+                rgba(5, 7, 17, 0.6),
+                transparent
+            );
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .logo-mark {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 210deg,
+                #53d7ff,
+                #5b8bff,
+                #ff4f9a,
+                #53d7ff
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 18px rgba(83, 215, 255, 0.55);
+            font-size: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent), var(--danger));
+            transition: width 0.22s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--accent), #5b8bff);
+            color: #020308;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            box-shadow: 0 0 22px rgba(83, 215, 255, 0.65);
+        }
+
+        /* LAYOUT */
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 84px 16px 80px;
+        }
+
+        section {
+            padding: 64px 0;
+        }
+
+        .tagline {
+            font-size: 13px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        h1, h2 {
+            line-height: 1.1;
+        }
+
+        .hero {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            display: grid;
+
+Shaya Ahmadi, [12/4/2025 4:36 AM]
+color: var(--accent);
+            text-decoration: none;
+        }
+
+        .link-inline:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 26px 12px 18px;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 880px) {
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                padding-top: 96px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="logo">
+                <div class="logo-mark">S</div>
+                <span>Shaya Tech</span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="index.html#process">Process</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="nav-cta">Book a Call</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO / INTRO -->
+        <section class="hero">
+            <div>
+                <p class="tagline">PORTFOLIO</p>
+                <h1>Selected Digital & Crypto Projects.</h1>
+                <p class="hero-sub">
+                    A closer look at how Shaya Tech helps turn complex ideas into clear,
+                    high-conversion digital experiences — backed by technical and market insight.
+                </p>
+                <p class="hero-tag">
+                    Each project is designed with a single question in mind:
+                    <br>«How do we create clarity and trust for the right audience?»
+                </p>
+
+                <div class="badge-row">
+                    <span class="badge">Crypto & Token Projects</span>
+                    <span class="badge">Landing Pages & Funnels</span>
+                    <span class="badge">Technical & Visual Alignment</span>
+                </div>
+
+                <a href="index.html" class="btn-ghost">← Back to main site</a>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-card-title">Case-Study Driven Design</div>
+                <p class="hero-card-text">
+                    Instead of generic templates, each build is structured around
+                    the real goal of the client: raising trust, simplifying complex
+                    offers, and moving users towards action — without noise.
+                </p>
+                <a href="#feedcoin" class="btn-primary">View FeedCoin Case Study</a>
+            </div>
+        </section>
+
+        <!-- PROJECT GRID -->
+        <section>
+            <div class="section-header">
+                <p class="tagline">HIGHLIGHTS</p>
+                <h2>Recent & Representative Work</h2>
+                <p>
+                    Below are examples of how strategy, technical thinking and design meet
+                    in real projects — from tokens and tools to digital brands.
+                </p>
+            </div>
+
+            <div class="cards">
+                <!-- FeedCoin -->
+                <article class="card" id="feedcoin">
+                    <div class="card-label">Featured</div>
+                    <div class="card-title">FeedCoin — Token Landing Experience</div>
+                    <p class="card-text">
+                        FeedCoin needed a clear, trustworthy and fast digital presence
+                        to introduce the token, communicate its story and guide visitors
+                        towards further engagement.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Crypto / Token</span>
+                        <span class="tag">Landing Page</span>
+
+Shaya Ahmadi, [12/4/2025 4:36 AM]
+<span class="tag">Token Narrative</span>
+                    </div>
+                    <p class="case-study">
+                        The design focuses on clean hierarchy, strong headings and precise
+                        call-to-actions, avoiding visual noise but keeping a modern,
+                        Web3-inspired feeling.
+                        <br><br>
+                        Live preview:
+                        <a class="link-inline" href="https://feedcointoken.github.io/Index.html/" target="_blank">
+                            feedcointoken.github.io/Index.html
+                        </a>
+                    </p>
+                </article>
+
+                <!-- Sample project 2 -->
+                <article class="card">
+                    <div class="card-label">Concept</div>
+                    <div class="card-title">Digital Trading Dashboard</div>
+                    <p class="card-text">
+                        Concept design for a dashboard that aggregates positions, risk,
+                        and scenario planning into a single, easy-to-read environment for
+                        active traders.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">UI / UX</span>
+                        <span class="tag">Trading</span>
+                        <span class="tag">Data Visualization</span>
+                    </div>
+                    <p class="case-study">
+                        Focus on reducing cognitive load — the interface surfaces only
+                        the information required for the next decision, nothing more.
+                    </p>
+                </article>
+
+                <!-- Sample project 3 -->
+                <article class="card">
+                    <div class="card-label">Brand Presence</div>
+                    <div class="card-title">Consulting Brand Microsite</div>
+                    <p class="card-text">
+                        A sharp, single-page site for a boutique consulting brand,
+                        highlighting positioning, offers and authority in under 30
+                        seconds of reading time.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Positioning</span>
+                        <span class="tag">Copywriting</span>
+                    </div>
+                    <p class="case-study">
+                        Structure optimized for first impression: who it is for,
+                        what problems are solved, and how engagement works.
+                    </p>
+                </article>
+
+                <!-- Sample project 4 -->
+                <article class="card">
+                    <div class="card-label">Automation</div>
+                    <div class="card-title">Signal & Update Delivery System</div>
+                    <p class="card-text">
+                        Workflow design for delivering structured market updates and
+                        trade ideas to clients — with clear tagging, archives and risk
+                        disclaimers.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Automation</span>
+                        <span class="tag">Client Experience</span>
+                        <span class="tag">Process Design</span>
+                    </div>
+                    <p class="case-study">
+                        Built to keep everything documented and searchable, while
+                        making it simple for clients to follow what matters now.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section>
+            <div class="section-header">
+                <p class="tagline">WORK TOGETHER</p>
+                <h2>Interested in a Project Like These?</h2>
+                <p>
+                    Whether you’re launching a token, upgrading your trading / investing
+
+Shaya Ahmadi, [12/4/2025 4:36 AM]
+framework, or building a digital brand, Shaya Tech can help design
+                    the strategy and the experience around it.
+                </p>
+            </div>
+
+            <div style="text-align:center;">
+                <a href="index.html#contact" class="btn-primary">
+                    Talk About Your Project
+                </a>
+                <div style="margin-top:10px; font-size:13px; color:var(--text-muted);">
+                    Direct contact · No obligations · Focused on clarity first.
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> Shaya Tech — Crypto & Digital Consulting. All rights reserved.
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
